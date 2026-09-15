@@ -2,6 +2,16 @@
 
 순수 자바스크립트 기반 경량 유틸리티. 복잡한 설정 없이(Zero Configuration) 즉시 사용 가능.
 
+## 구조
+
+```
+tools/
+└─ <tool-name>/
+    ├─ index.html   # 데모 / 사용 예시
+    ├─ js/          # 라이브러리 소스
+    └─ README.md    # 도구 설명
+```
+
 ## 도구 목록
 
 ### 1. [LiteGantt](./lite-gantt)
