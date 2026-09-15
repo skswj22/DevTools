@@ -52,8 +52,8 @@ LiteToast.info('5초 동안 표시됩니다.', 5000);
 - **duration** (Number, Optional): 표시 시간 (기본값: 3000ms).
 
 ## 📜 라이선스 (License)
-본 소프트웨어는 **Apache License 2.0**을 준수함.<br/>
-유연한 사용과 수정이 보장되며, 상업적 활용을 포함한 모든 권리가 전적으로 허용됨.
+본 소프트웨어는 **Apache License 2.0** 준수.<br/>
+자유로운 사용, 수정 및 상업적 활용 전면 허용.
 
 ## 👤 만든이 (Author)
 Created by **김동완**.
