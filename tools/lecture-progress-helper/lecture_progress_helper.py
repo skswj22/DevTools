@@ -431,16 +431,17 @@ async def choose_initial_page(context: BrowserContext, start_url: str) -> Page:
 
 
 async def click_my_classroom(context: BrowserContext, fallback_page: Page) -> Page:
-    page = await newest_page_matching(context, lambda url, _title: "esangedu.kr" in url)
-    page = page or fallback_page
-    await page.bring_to_front()
-
     print("[step] '나의 강의실' 링크를 찾는 중입니다.", flush=True)
-    link = page.get_by_role("link", name=MY_CLASSROOM_TEXT, exact=True)
-    if await locator_count(link) == 0:
+    # 로그인 시 공지 팝업 탭이 뜨므로 최신 탭만 보지 않고 링크가 있는 탭을 찾음.
+    for page in [*reversed(context.pages), fallback_page]:
+        if page.is_closed():
+            continue
         link = page.locator("a", has_text=MY_CLASSROOM_TEXT)
-    if await locator_count(link) == 0:
+        if await locator_count(link) > 0:
+            break
+    else:
         raise RuntimeError("'나의 강의실' 링크를 찾지 못했습니다. 로그인 상태와 현재 페이지를 확인해주세요.")
+    await page.bring_to_front()
 
     try:
         async with context.expect_page(timeout=5000) as popup_info:
