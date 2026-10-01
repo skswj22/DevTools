@@ -1,6 +1,13 @@
 # -*- mode: python ; coding: utf-8 -*-
 
+import os
+
 from PyInstaller.utils.hooks import collect_all
+
+
+# 로고 없으면 기본 아이콘으로 빌드.
+ICON = os.path.join(SPECPATH, "logo", "logo.png")
+ICON = ICON if os.path.exists(ICON) else None
 
 
 playwright_datas, playwright_binaries, playwright_hiddenimports = collect_all("playwright")
@@ -40,4 +47,6 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    icon=ICON,
+    version="version_info.txt",
 )

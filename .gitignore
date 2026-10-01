@@ -3,3 +3,4 @@ __pycache__/
 build/
 dist/
 release/
+tools/lecture-progress-helper/logo/logo.png

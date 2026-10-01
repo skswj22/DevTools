@@ -66,6 +66,9 @@ python build_release.py
 
 결과물: `release\lecture_progress_helper.exe` (exe에도 동일 옵션 사용 가능)
 
+- **아이콘**: `logo\logo.png` 배치 시 exe 아이콘으로 자동 적용. 미배치 시 기본 아이콘으로 빌드. (256×256 이상 정사각형 PNG 권장, git 추적 제외)
+- **제작자 정보**: exe 속성 > 자세히 탭 표시 내용은 `version_info.txt`에서 수정.
+
 ## 🧪 자가 점검 (Self-check)
 
 ```cmd

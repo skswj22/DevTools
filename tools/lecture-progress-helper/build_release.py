@@ -32,6 +32,8 @@ def main() -> None:
 
     RELEASE_ONEFILE.parent.mkdir(exist_ok=True)
     shutil.copy2(source, RELEASE_ONEFILE)
+    # 같은 경로 덮어쓰기 시 탐색기가 옛 아이콘을 캐시로 보여주므로 아이콘 캐시 갱신.
+    subprocess.run(["ie4uinit.exe", "-show"], check=False)
     for path in (ROOT / "build", ROOT / "dist"):
         shutil.rmtree(path, ignore_errors=True)
 

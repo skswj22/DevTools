@@ -1,0 +1,16 @@
+# PyInstaller 버전 정보 (exe 속성 > 자세히)
+VSVersionInfo(
+  ffi=FixedFileInfo(filevers=(1, 0, 0, 0), prodvers=(1, 0, 0, 0)),
+  kids=[
+    StringFileInfo([StringTable('041204B0', [
+      StringStruct('CompanyName', '김동완'),
+      StringStruct('FileDescription', '강의 진행 도우미'),
+      StringStruct('FileVersion', '1.0.0'),
+      StringStruct('InternalName', 'lecture_progress_helper'),
+      StringStruct('LegalCopyright', '© 김동완. Apache License 2.0'),
+      StringStruct('OriginalFilename', 'lecture_progress_helper.exe'),
+      StringStruct('ProductName', 'Lecture Progress Helper'),
+      StringStruct('ProductVersion', '1.0.0')])]),
+    VarFileInfo([VarStruct('Translation', [1042, 1200])])
+  ]
+)

@@ -754,6 +754,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
+    print("강의 진행 도우미 v1.0.0 · made by 김동완", flush=True)
     try:
         asyncio.run(main_async(args))
     except KeyboardInterrupt:
