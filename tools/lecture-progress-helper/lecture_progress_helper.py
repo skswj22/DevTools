@@ -709,10 +709,12 @@ async def main_async(args: argparse.Namespace) -> None:
         active_page = await click_my_classroom(context, active_page)
 
         print("[step] 내 강의실이 열렸습니다.", flush=True)
-        print("[step] 브라우저에서 직접 원하는 강의를 열고 재생을 시작해주세요.", flush=True)
-        await wait_for_enter("[cmd] 강의 플레이어 페이지가 열린 뒤 Enter를 누르면 감지를 시작합니다...")
+        print("[step] 브라우저에서 과정을 눌러 강의 목록(수강하기)을 열거나, 강의를 직접 재생해주세요.", flush=True)
+        await wait_for_enter("[cmd] Enter를 누르면 감지를 시작합니다. 강의 목록이면 남은 강의를 자동으로 수강합니다...")
 
-        active_page = await find_lecture_player_page(context, active_page)
+        # 강의 목록 화면이면 모니터 루프가 다음 '수강하기'를 자동 클릭함.
+        active_page = await find_active_lecture_page(context) or await find_lecture_player_page(context, active_page)
+        await active_page.bring_to_front()
         print(f"[step] 감지 대상 페이지: {active_page.url} / {await safe_title(active_page)}", flush=True)
 
         try:
